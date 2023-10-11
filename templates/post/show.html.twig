@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ post.name }}</h1>
+            <div>Par {{ post.author }}</div>
+            <div>Le {{ post.createdAt | date("d/m/Y") }}</div>
+            <img src="{{ vich_uploader_asset(post) }}" alt="{{ post.name }}">
+            <p>{{ post.content }}</p>
+            <div class="d-flex p-2" style="justify-content: space-between">
+                <a class="btn btn-success" href="{{ path('app_post_like', {'id': post.id}) }}">Like ({{ like }})</a>
+                <a class="btn btn-danger" href="{{ path('app_post_dislike', {'id': post.id}) }}">Dislike ({{ dislike }}
+                    )</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <h2>Commentaires</h2>
+        {{ form(commentForm) }}
+        {% for comment in commentToDisplay %}
+        <div class="col">
+            <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+                <div class="card-header">{{ comment.author }}</div>
+                <div class="card-body">
+                    <p class="card-text"><small>{{ comment.createdAt | date("H:i d/m/Y") }}</small></p>
+                    <p class="card-text">{{ comment.content | raw }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block title %}
+        {{ post.name }}
+    {% endblock %}
+

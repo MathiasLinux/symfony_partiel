@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2800 1294.99">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-6 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-2 {
+        clip-rule: evenodd;
+        fill: none;
+      }
+
+      .cls-3 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-4 {
+        fill: url(#linear-gradient-3);
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="cls-2" points="2800 668 2800 1294.99 0 1294.99 0 668 1045.65 1.81 1400 0 1754.35 1.81 2800 668"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="1438.51" y1="1476.04" x2="1369.84" y2="-1.46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#515252"/>
+      <stop offset="1" stop-color="#373737"/>
+    </linearGradient>
+    <clipPath id="clippath-1">
+      <path class="cls-2" d="m0,853.39v-118.12L1074.91,1.81h47.5L0,853.39Zm2800-118.12v118.12L1677.59,1.81h47.5l1074.91,733.46Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-2" x1="1395.5" y1="853.57" x2="1404.5" y2="1.57" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#cbcaca"/>
+    </linearGradient>
+    <clipPath id="clippath-2">
+      <path class="cls-2" d="m1317.86,1294.99h164.27l-10.04-278.85h-144.2l-10.03,278.85Zm14.97-437.67h134.33l-10.03-246.68h-114.26l-10.03,246.68Zm14.97-368h104.4l-10.03-246.68h-84.33l-10.04,246.68Zm14.97-368h74.45L1432.3.17l-32.3-.17-32.3.17-4.93,121.15Z"/>
+    </clipPath>
+    <linearGradient id="linear-gradient-3" x1="1400" y1="1558.82" x2="1400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffcc06"/>
+      <stop offset="1" stop-color="#bd992f"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-7">
+    <rect class="cls-1" width="2800" height="1294.99"/>
+  </g>
+  <g class="cls-6">
+    <rect class="cls-3" y="1.81" width="2800" height="851.58"/>
+  </g>
+  <g class="cls-5">
+    <rect class="cls-4" x="1317.86" width="164.27" height="1294.99"/>
+  </g>
+</svg>

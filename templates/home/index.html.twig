@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Symfony Partiel{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue sur le Blog</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="btn btn-primary" href="{{ path('app_post') }}">Fil d'actualité</a>
+            </div>
+            <div class="col">
+                <a class="btn btn-success" href="">Groupes d'entraide</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
