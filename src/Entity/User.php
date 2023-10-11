@@ -46,11 +46,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Like::class)]
     private Collection $like;
 
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Group::class)]
+    private Collection $groups;
+
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: GroupPost::class)]
+    private Collection $groupPosts;
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->like = new ArrayCollection();
+        $this->groups = new ArrayCollection();
+        $this->groupPosts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -236,6 +244,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($like->getUser() === $this) {
                 $like->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Group>
+     */
+    public function getGroups(): Collection
+    {
+        return $this->groups;
+    }
+
+    public function addGroup(Group $group): static
+    {
+        if (!$this->groups->contains($group)) {
+            $this->groups->add($group);
+            $group->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroup(Group $group): static
+    {
+        if ($this->groups->removeElement($group)) {
+            // set the owning side to null (unless already changed)
+            if ($group->getOwner() === $this) {
+                $group->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, GroupPost>
+     */
+    public function getGroupPosts(): Collection
+    {
+        return $this->groupPosts;
+    }
+
+    public function addGroupPost(GroupPost $groupPost): static
+    {
+        if (!$this->groupPosts->contains($groupPost)) {
+            $this->groupPosts->add($groupPost);
+            $groupPost->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupPost(GroupPost $groupPost): static
+    {
+        if ($this->groupPosts->removeElement($groupPost)) {
+            // set the owning side to null (unless already changed)
+            if ($groupPost->getAuthor() === $this) {
+                $groupPost->setAuthor(null);
             }
         }
 

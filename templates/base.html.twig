@@ -35,14 +35,23 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_post') }}">Fil d'actualité</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_group') }}">Groupes</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mb-2 mb-lg-0 me-right">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path('app_register') }}">Registration</a>
-                    </li>
+                    {% if is_granted('IS_AUTHENTICATED') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_register') }}">Registration</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

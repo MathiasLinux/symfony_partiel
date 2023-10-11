@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ group.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1>{{ group.name }}</h1>
+            <div>Crée par {{ group.owner }}</div>
+            <h2 style="margin-top: 5%">Description du groupe</h2>
+            <p>{{ group.description }}</p>
+            <a class="btn btn-primary" href="{{ path('app_group_show_post', {'id': group.id}) }}">Voir les posts</a>
+            {% if isOwner == false %}
+                <h3 style="margin-top: 5%">Faire une demande pour rejoindre le groupe</h3>
+                <a class="btn btn-success" href="#">Faire une demande pour rejoindre</a>
+            {% else %}
+                <h3 style="margin-top: 5%">Accepter les demandes</h3>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
+

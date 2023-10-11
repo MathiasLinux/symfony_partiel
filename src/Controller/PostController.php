@@ -108,6 +108,7 @@ class PostController extends AbstractController
     #[Route('/actuality/{id}/like', name: 'app_post_like')]
     public function like(Security $security, int $id, PostRepository $postRepository, EntityManagerInterface $entityManager, LikeRepository $likeRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
         $user = $security->getUser();
         $curentPost = $postRepository->find($id);
 
@@ -142,6 +143,7 @@ class PostController extends AbstractController
     #[Route('/actuality/{id}/dislike', name: 'app_post_dislike')]
     public function dislike(Security $security, int $id, PostRepository $postRepository, EntityManagerInterface $entityManager, LikeRepository $likeRepository): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED');
         $user = $security->getUser();
         $curentPost = $postRepository->find($id);
 
